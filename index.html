@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshan Ghimire - Portfolio Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #1a202c;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            padding: 60px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .status-badge i {
+            margin-right: 8px;
+            color: #fbbf24;
+        }
+        
+        h1 {
+            font-size: 56px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fbbf24;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 5px;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 50px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a202c;
+        }
+        
+        .education-card {
+            background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .education-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .education-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+        
+        .education-card h3 {
+            font-size: 22px;
+            color: #1a202c;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .education-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .badge-purple {
+            background: rgba(102, 126, 234, 0.15);
+            color: #667eea;
+        }
+        
+        .badge-yellow {
+            background: rgba(251, 191, 36, 0.15);
+            color: #f59e0b;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .education-card p {
+            color: #6b7280;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .skill-chip {
+            background: white;
+            border: 2px solid #e5e7eb;
+            padding: 15px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .skill-chip:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+        }
+        
+        .skill-chip i {
+            font-size: 24px;
+            color: #667eea;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: #1a202c;
+            font-size: 15px;
+        }
+        
+        .progress-section {
+            background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
+            border-radius: 16px;
+            padding: 25px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .progress-item {
+            margin-bottom: 25px;
+        }
+        
+        .progress-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .progress-name {
+            font-weight: 600;
+            color: #1a202c;
+            font-size: 15px;
+        }
+        
+        .progress-percent {
+            font-weight: 700;
+            color: #667eea;
+            font-size: 15px;
+        }
+        
+        .progress-bar-bg {
+            height: 10px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 1.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .quote-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 16px;
+            color: white;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 120px;
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+        
+        .quote-text {
+            font-size: 16px;
+            font-style: italic;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .quote-author {
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
+            border-radius: 16px;
+            padding: 25px;
+            border: 2px solid #e5e7eb;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .info-text {
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: #1a202c;
+            padding: 30px 50px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 28px;
+            color: #fbbf24;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+            }
+            
+            .hero {
+                padding: 40px 30px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                gap: 15px;
+            }
+            
+            .stat-item {
+                flex: 1;
+                min-width: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="status-badge">
+                    <i class="fas fa-circle"></i>
+                    Available for Projects
+                </div>
+                <h1>Darshan <span class="gradient-text">Ghimire</span></h1>
+                <p class="subtitle">Web Development Student | Building Modern Web Experiences with HTML, CSS & JavaScript</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">90%</span>
+                        <span class="stat-label">HTML/CSS Mastery</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Learning Journey</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h2 class="section-title">Education & Learning</h2>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3>Higher Secondary Education</h3>
+                        <div class="education-meta">
+                            <span class="badge badge-purple">+2 Level</span>
+                            <span class="badge badge-purple">Management / Computer Science</span>
+                        </div>
+                        <p>Built a strong foundation in analytical thinking and problem-solving through comprehensive management and science curriculum, preparing for a career in technology.</p>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3>Front-End Web Development</h3>
+                        <div class="education-meta">
+                            <span class="badge badge-purple">HTML5 & CSS3</span>
+                            <span class="badge badge-purple">Completed</span>
+                        </div>
+                        <p>Mastered modern web development fundamentals including semantic HTML5, advanced CSS3 styling, responsive design principles, Flexbox, Grid layouts, and best practices for creating accessible, performant websites.</p>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h3>JavaScript Programming</h3>
+                        <div class="education-meta">
+                            <span class="badge badge-yellow"><i class="fas fa-spinner fa-spin"></i> In Progress</span>
+                        </div>
+                        <p>Actively learning JavaScript to bring interactivity and dynamic functionality to web applications. Focusing on ES6+ features, DOM manipulation, event handling, async programming, and modern development patterns.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h2 class="section-title">Skills</h2>
+                    </div>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-chip">
+                            <i class="fab fa-html5"></i>
+                            <span class="skill-name">HTML5</span>
+                        </div>
+                        <div class="skill-chip">
+                            <i class="fab fa-css3-alt"></i>
+                            <span class="skill-name">CSS3</span>
+                        </div>
+                        <div class="skill-chip">
+                            <i class="fab fa-js"></i>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                        <div class="skill-chip">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span class="skill-name">Responsive</span>
+                        </div>
+                        <div class="skill-chip">
+                            <i class="fas fa-paint-brush"></i>
+                            <span class="skill-name">UI Design</span>
+                        </div>
+                        <div class="skill-chip">
+                            <i class="fas fa-laptop-code"></i>
+                            <span class="skill-name">Web Dev</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-section">
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-name">HTML</span>
+                                <span class="progress-percent">90%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-name">CSS</span>
+                                <span class="progress-percent">85%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span class="progress-name">JavaScript</span>
+                                <span class="progress-percent">40%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quote-box">
+                    <p class="quote-text">Code is like humor. When you have to explain it, it's bad.</p>
+                    <p class="quote-author">— Cory House</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="info-text">Darshan Ghimire</span>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <span class="info-text">Frontend Developer</span>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <span class="info-text">JavaScript Mastery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Crafted with passion using HTML, CSS & JavaScript</p>
+            <div class="signature">Darshan Ghimire</div>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('.progress-bar-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+            
+            // Skill chip interactions
+            const skillChips = document.querySelectorAll('.skill-chip');
+            skillChips.forEach(chip => {
+                chip.addEventListener('click', function() {
+                    const skillName = this.querySelector('.skill-name').textContent;
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            });
+            
+            // Education cards stagger animation
+            const educationCards = document.querySelectorAll('.education-card');
+            educationCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        });
+    </script>
+</body>
+</html>
